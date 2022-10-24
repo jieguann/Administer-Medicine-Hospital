@@ -2882,6 +2882,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Direct Interactor
       objectReference: {fileID: 0}
+    - target: {fileID: 8841706926471734270, guid: 2fd3e07afe5b461490fb8e314976b1b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: RightHand
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd3e07afe5b461490fb8e314976b1b0, type: 3}
 --- !u!33 &470419262950869361
@@ -24072,6 +24077,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Direct Interactor
       objectReference: {fileID: 0}
+    - target: {fileID: 8841706926471734270, guid: 2fd3e07afe5b461490fb8e314976b1b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: LeftHand
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd3e07afe5b461490fb8e314976b1b0, type: 3}
 --- !u!23 &6193926143117322306
@@ -34983,7 +34993,7 @@ GameObject:
   - component: {fileID: 5045211221773131646}
   m_Layer: 0
   m_Name: RightHand (Teleport Locomotion)
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35403,7 +35413,7 @@ GameObject:
   - component: {fileID: 3414492871453798033}
   m_Layer: 0
   m_Name: LeftHand (Smooth locomotion)
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
