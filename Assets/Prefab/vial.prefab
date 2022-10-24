@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5138648489659033751}
   m_Layer: 0
   m_Name: vial
-  m_TagString: Untagged
+  m_TagString: Vial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +110,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7052560129270014789}
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
-  m_LocalPosition: {x: 0.004583268, y: 0.11530189, z: 0.023155011}
-  m_LocalScale: {x: 4.7018085, y: 4.7018085, z: 4.7018085}
+  m_LocalPosition: {x: 0.005, y: 0.008, z: 0.023}
+  m_LocalScale: {x: 0.2966042, y: 0.2966042, z: 0.2966042}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3237048434560911219}
