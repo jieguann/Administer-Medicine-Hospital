@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5557531287947300067}
+  - component: {fileID: 282999452448285926}
+  - component: {fileID: 6668697143991461068}
+  - component: {fileID: 4193724764181645914}
   m_Layer: 0
   m_Name: Left Glove
   m_TagString: Untagged
@@ -32,6 +35,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -113.438, y: 0, z: 175.535}
+--- !u!135 &282999452448285926
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598226583352684896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.12
+  m_Center: {x: -0.04, y: 0.03, z: 0}
+--- !u!54 &6668697143991461068
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598226583352684896}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4193724764181645914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598226583352684896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a7b53b796eb4b448c4948567c73181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gloveColor: {fileID: 2100000, guid: 1be8eaf4676b0154c834b0087b84703b, type: 2}
 --- !u!1001 &3989132707387494589
 PrefabInstance:
   m_ObjectHideFlags: 0

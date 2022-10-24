@@ -9,8 +9,8 @@ public class InstanceGlove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        instanceGlove(leftGlovePrefeb, other.gameObject, "LeftHand");
-        instanceGlove(rightGlovePrefeb, other.gameObject, "RightHand");
+        instanceGlove(leftGlovePrefeb, other.gameObject, "RightHand");
+        instanceGlove(rightGlovePrefeb, other.gameObject, "LeftHand");
     }
 
     private void instanceGlove(GameObject glove, GameObject hand, string tagName)
