@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LeftHand
   - RightHand
+  - RightGlove
+  - LeftGlove
   layers:
   - Default
   - TransparentFX
