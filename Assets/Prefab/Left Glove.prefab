@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5557531287947300067}
   m_Layer: 0
-  m_Name: Left Hand
+  m_Name: Left Glove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4d95306572ac02946ac573e7ea987103, type: 2}
+      objectReference: {fileID: 2100000, guid: 1be8eaf4676b0154c834b0087b84703b, type: 2}
     - target: {fileID: 919132149155446097, guid: a88da65ab041e6b4795cfe0f4b47de78,
         type: 3}
       propertyPath: m_Name

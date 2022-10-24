@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1598226583352684896
+--- !u!1 &6503929922495265909
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5557531287947300067}
+  - component: {fileID: 93663069988209142}
   m_Layer: 0
-  m_Name: Left Hand
+  m_Name: Right Glove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5557531287947300067
+--- !u!4 &93663069988209142
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598226583352684896}
+  m_GameObject: {fileID: 6503929922495265909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3519147985688868694}
+  - {fileID: 8987519236340169283}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3989132707387494589
+--- !u!1001 &8876784384615046568
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5557531287947300067}
+    m_TransformParent: {fileID: 93663069988209142}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a88da65ab041e6b4795cfe0f4b47de78,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a88da65ab041e6b4795cfe0f4b47de78,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a88da65ab041e6b4795cfe0f4b47de78,
         type: 3}
@@ -98,7 +103,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4d95306572ac02946ac573e7ea987103, type: 2}
+      objectReference: {fileID: 2100000, guid: 1be8eaf4676b0154c834b0087b84703b, type: 2}
     - target: {fileID: 919132149155446097, guid: a88da65ab041e6b4795cfe0f4b47de78,
         type: 3}
       propertyPath: m_Name
@@ -106,9 +111,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a88da65ab041e6b4795cfe0f4b47de78, type: 3}
---- !u!4 &3519147985688868694 stripped
+--- !u!4 &8987519236340169283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a88da65ab041e6b4795cfe0f4b47de78,
     type: 3}
-  m_PrefabInstance: {fileID: 3989132707387494589}
+  m_PrefabInstance: {fileID: 8876784384615046568}
   m_PrefabAsset: {fileID: 0}
