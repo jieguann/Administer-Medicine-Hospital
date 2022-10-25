@@ -17,6 +17,23 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    public class savedAttemps
+    {
+        public string time;
+        public int attemps;
+    }
+
+    public class saveList
+    {
+        public List<savedAttemps> list;
+    }
+
+    private string saveDataKey = "saveDataKey";
+    //private savedAttemps[] saveAttempsData = new savedAttemps[3];
+    //private savedAttemps[] savedTempData = new savedAttemps[2];
+
+
+    public int attemps = 0;
     [SerializeField] private Transform cameraHMD;
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private List<GameObject> spawnObjects;
@@ -28,10 +45,36 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+
+
+        
     }
     // Start is called before the first frame update
     void Start()
     {
+       
+            
+            if (PlayerPrefs.HasKey(saveDataKey + i.ToString()))
+            {
+
+                //saveAttempsData[i] = JsonUtility.FromJson<savedAttemps>(PlayerPrefs.GetString(saveDataKey+i.ToString()));
+                
+                
+                //print(savedTempData[i].time);
+                //print(saveAttempsData[i].time);
+            }
+            else
+            {
+                //saveAttempsData[i].time = "N/A";
+                //saveAttempsData[i].attemps = 0;
+            }
+
+
+            
+        
+
+        
+
         orderFlag = 0;
 
         for(int i=0; i < spawnPoints.Count; i++)
@@ -82,6 +125,26 @@ public class GameManager : MonoBehaviour
         if (assembledPercentage == 0)
         {
             orderFlag += 1;
+        }
+
+    }
+
+
+    void OnApplicationQuit()
+    {//Debug.Log("Application ending after " + Time.time + " seconds");
+
+       
+        
+        
+
+        saveAttempsData[2].attemps = attemps;
+        saveAttempsData[2].time = System.DateTime.Now.ToString();
+
+        for (int i = 0; i < saveAttempsData.Length; i++)
+        {
+            
+            PlayerPrefs.SetString(saveDataKey + i.ToString(), JsonUtility.ToJson(saveAttempsData[i]));
+            print(saveAttempsData[i].time);
         }
 
     }
