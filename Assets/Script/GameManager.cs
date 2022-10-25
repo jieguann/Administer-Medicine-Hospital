@@ -25,12 +25,13 @@ public class GameManager : MonoBehaviour
 
     public class saveList
     {
-        public List<savedAttemps> list;
+        public List<savedAttemps> list = new List<savedAttemps>();
     }
 
     private string saveDataKey = "saveDataKey";
-    //private savedAttemps[] saveAttempsData = new savedAttemps[3];
-    //private savedAttemps[] savedTempData = new savedAttemps[2];
+    private saveList saveListData = new saveList();
+    private savedAttemps saveAttempsData = new savedAttemps();
+    
 
 
     public int attemps = 0;
@@ -54,15 +55,15 @@ public class GameManager : MonoBehaviour
     {
        
             
-            if (PlayerPrefs.HasKey(saveDataKey + i.ToString()))
+            if (PlayerPrefs.HasKey(saveDataKey))
             {
 
-                //saveAttempsData[i] = JsonUtility.FromJson<savedAttemps>(PlayerPrefs.GetString(saveDataKey+i.ToString()));
-                
-                
-                //print(savedTempData[i].time);
-                //print(saveAttempsData[i].time);
-            }
+                saveListData = JsonUtility.FromJson<saveList>(PlayerPrefs.GetString(saveDataKey));
+                //print(saveListData.list[0].time);
+
+            //print(savedTempData[i].time);
+            //print(saveAttempsData[i].time);
+        }
             else
             {
                 //saveAttempsData[i].time = "N/A";
@@ -131,21 +132,16 @@ public class GameManager : MonoBehaviour
 
 
     void OnApplicationQuit()
-    {//Debug.Log("Application ending after " + Time.time + " seconds");
-
-       
-        
-        
-
-        saveAttempsData[2].attemps = attemps;
-        saveAttempsData[2].time = System.DateTime.Now.ToString();
-
-        for (int i = 0; i < saveAttempsData.Length; i++)
-        {
-            
-            PlayerPrefs.SetString(saveDataKey + i.ToString(), JsonUtility.ToJson(saveAttempsData[i]));
-            print(saveAttempsData[i].time);
+    {
+        if (saveListData.list.Count == 2) {
+            saveListData.list.RemoveAt(0);
         }
+        saveAttempsData.attemps = attemps;
+        saveAttempsData.time = System.DateTime.Now.ToString();
 
+        saveListData.list.Add(saveAttempsData);
+        
+        
+        PlayerPrefs.SetString(saveDataKey , JsonUtility.ToJson(saveListData));           
     }
 }
