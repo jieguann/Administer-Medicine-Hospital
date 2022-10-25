@@ -15,11 +15,13 @@ public class WearGlove : MonoBehaviour
 
     private void wearGlove(GameObject other, string hand, string glove)
     {
-        if (other.tag == hand && this.tag == glove)
+        if (other.tag == hand && this.tag == glove && GameManager.Instance.orderFlag < 2)
         {
-
+            
             other.GetComponent<Renderer>().material.color = gloveColor.color;
             Destroy(this.gameObject);
+            GameManager.Instance.orderFlag += 1;
+            Debug.Log("+");
         }
     }
 }

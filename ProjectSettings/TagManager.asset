@@ -9,6 +9,7 @@ TagManager:
   - RightGlove
   - LeftGlove
   - Vial
+  - Arm
   layers:
   - Default
   - TransparentFX

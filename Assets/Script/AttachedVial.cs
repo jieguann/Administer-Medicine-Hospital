@@ -13,6 +13,11 @@ public class AttachedVial : MonoBehaviour
             other.transform.position = this.transform.position;
             other.transform.rotation = this.transform.rotation;
         }
+
+        if(other.tag == "Arm")
+        {
+
+        }
     }
 
 
