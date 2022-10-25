@@ -9,7 +9,9 @@ public class AttachedVial : MonoBehaviour
     {
         if(other.tag == "Vial")
         {
-            print("++++");
+            //other.transform.SetParent(this.transform);
+            other.transform.position = this.transform.position;
+            other.transform.rotation = this.transform.rotation;
         }
     }
 
