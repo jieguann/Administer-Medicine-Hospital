@@ -25,13 +25,15 @@ public class GameManager : MonoBehaviour
 
     public class saveList
     {
-        public List<savedAttemps> list = new List<savedAttemps>();
+        //public string name;
+        public List<string> list = new List<string>();
     }
 
-    private string saveDataKey = "saveDataKey";
+    //private string saveDataKey = "saveDataKey";
     private saveList saveListData = new saveList();
+    private saveList currentListData = new saveList();
     private savedAttemps saveAttempsData = new savedAttemps();
-    
+    //private List<savedAttemps> tempList = new List<savedAttemps>();
 
 
     public int attemps = 0;
@@ -53,29 +55,26 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-            
-            if (PlayerPrefs.HasKey(saveDataKey))
-            {
 
-                saveListData = JsonUtility.FromJson<saveList>(PlayerPrefs.GetString(saveDataKey));
-                print(saveListData.list[saveListData.list.Count - 1].time);
-            //print(saveListData.list[0].time);
+        //saveListData.list = new List<savedAttemps>();
+        currentListData.list = JsonUtility.FromJson<saveList>(System.IO.File.ReadAllText(Application.persistentDataPath + "/AttempsData.json")).list;
 
-            //print(savedTempData[i].time);
-            //print(saveAttempsData[i].time);
+        if (currentListData.list.Count > 2)
+        {
+            saveListData.list.Add(currentListData.list[1]);
+            saveListData.list.Add(currentListData.list[2]);
         }
-            else
-            {
-                //saveAttempsData[i].time = "N/A";
-                //saveAttempsData[i].attemps = 0;
-            }
+
+        else
+        {
+            saveListData.list = currentListData.list;
+        }
+       
 
 
-            
-        
 
-        
+
+
 
         orderFlag = 0;
 
@@ -139,12 +138,23 @@ public class GameManager : MonoBehaviour
             saveListData.list.RemoveAt(0);
         }
         */
-        saveAttempsData.attemps = attemps;
+        saveAttempsData.attemps = 1;
         saveAttempsData.time = System.DateTime.Now.ToString();
+        var saveAttempsDataJson = JsonUtility.ToJson(saveAttempsData);
 
-        saveListData.list.Add(saveAttempsData);
-        
-        
-        PlayerPrefs.SetString(saveDataKey , JsonUtility.ToJson(saveListData));           
+        //tempList.Add(new savedAttemps { attemps = 3, time = System.DateTime.Now.ToString() }) ;
+        //tempList[tempList.Count - 1].attemps = 1;
+        //tempList[tempList.Count - 1].time = System.DateTime.Now.ToString();
+        //print(tempList[tempList.Count - 1].attemps);
+        //saveListData.list = tempList;
+        saveListData.list.Add(saveAttempsDataJson);
+        //saveListData.name = "jie guan";
+
+
+        //PlayerPrefs.SetString(saveDataKey , JsonUtility.ToJson(saveListData));
+        //
+
+        //Debug.Log(Application.persistentDataPath);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/AttempsData.json", JsonUtility.ToJson(saveListData));
     }
 }
