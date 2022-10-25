@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         while (assembledPercentage < 100)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.5f);
             assembledPercentage += 5;
         }
 
@@ -69,5 +69,20 @@ public class GameManager : MonoBehaviour
             orderFlag += 1;
         }
         
+    }
+
+    public IEnumerator injectPatient()
+    {
+        while (assembledPercentage > 0)
+        {
+            yield return new WaitForSeconds(0.5f);
+            assembledPercentage -= 5;
+        }
+
+        if (assembledPercentage == 0)
+        {
+            orderFlag += 1;
+        }
+
     }
 }
