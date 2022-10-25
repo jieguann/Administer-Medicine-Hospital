@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
             {
 
                 saveListData = JsonUtility.FromJson<saveList>(PlayerPrefs.GetString(saveDataKey));
-                //print(saveListData.list[0].time);
+                print(saveListData.list[saveListData.list.Count - 1].time);
+            //print(saveListData.list[0].time);
 
             //print(savedTempData[i].time);
             //print(saveAttempsData[i].time);
@@ -133,9 +134,11 @@ public class GameManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        /*
         if (saveListData.list.Count == 2) {
             saveListData.list.RemoveAt(0);
         }
+        */
         saveAttempsData.attemps = attemps;
         saveAttempsData.time = System.DateTime.Now.ToString();
 
