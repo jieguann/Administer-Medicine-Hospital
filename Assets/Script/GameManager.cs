@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
+    [SerializeField] private Transform cameraHMD;
     [SerializeField] private List<Transform> spawnPoints;
     [SerializeField] private List<GameObject> spawnObjects;
 
+    [SerializeField] private GameObject tipsPrefeb;
     public int orderFlag;
+    public float assembledPercentage = 0;
 
     private void Awake()
     {
@@ -44,6 +46,28 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void errorTips()
+    {
+        var tips = Instantiate(tipsPrefeb, cameraHMD);
+        Destroy(tips, 2);
+    }
+
+
+    public IEnumerator assembleSyringe()
+    {
+        while (assembledPercentage < 100)
+        {
+            yield return new WaitForSeconds(1.0f);
+            assembledPercentage += 5;
+        }
+
+        if (assembledPercentage == 100)
+        {
+            orderFlag += 1;
+        }
         
     }
 }
