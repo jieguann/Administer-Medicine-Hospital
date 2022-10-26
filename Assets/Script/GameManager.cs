@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.IO;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     //private string saveDataKey = "saveDataKey";
     private saveList saveListData = new saveList();
-    private saveList currentListData = new saveList();
+    public saveList currentListData = new saveList();
     private savedAttemps saveAttempsData = new savedAttemps();
     //private List<savedAttemps> tempList = new List<savedAttemps>();
 
@@ -45,37 +45,35 @@ public class GameManager : MonoBehaviour
     public int orderFlag;
     public float assembledPercentage = 0;
 
+    [SerializeField] Transform leftHand;
+    [SerializeField] GameObject resetButtonPrefeb;
+
+
     private void Awake()
     {
         _instance = this;
 
+        if (File.Exists(Application.persistentDataPath + "/AttempsData.json"))
+        {
+            //saveListData.list = new List<savedAttemps>();
+            currentListData.list = JsonUtility.FromJson<saveList>(File.ReadAllText(Application.persistentDataPath + "/AttempsData.json")).list;
 
-        
+            if (currentListData.list.Count > 2)
+            {
+                saveListData.list.Add(currentListData.list[1]);
+                saveListData.list.Add(currentListData.list[2]);
+            }
+
+            else
+            {
+                saveListData.list = currentListData.list;
+            }
+        }
+
     }
     // Start is called before the first frame update
     void Start()
     {
-
-        //saveListData.list = new List<savedAttemps>();
-        currentListData.list = JsonUtility.FromJson<saveList>(System.IO.File.ReadAllText(Application.persistentDataPath + "/AttempsData.json")).list;
-
-        if (currentListData.list.Count > 2)
-        {
-            saveListData.list.Add(currentListData.list[1]);
-            saveListData.list.Add(currentListData.list[2]);
-        }
-
-        else
-        {
-            saveListData.list = currentListData.list;
-        }
-       
-
-
-
-
-
-
         orderFlag = 0;
 
         for(int i=0; i < spawnPoints.Count; i++)
@@ -95,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void errorTips()
     {
+        attemps += 1;
         var tips = Instantiate(tipsPrefeb, cameraHMD);
         Destroy(tips, 2);
     }
@@ -126,35 +125,28 @@ public class GameManager : MonoBehaviour
         if (assembledPercentage == 0)
         {
             orderFlag += 1;
+            OnComplete();
         }
 
     }
 
 
-    void OnApplicationQuit()
+    public void OnComplete()
     {
-        /*
-        if (saveListData.list.Count == 2) {
-            saveListData.list.RemoveAt(0);
-        }
-        */
-        saveAttempsData.attemps = 1;
+        print("complete");
+        Instantiate(resetButtonPrefeb, leftHand);
+    }
+
+    public void OnSceneReload()
+    {
+        
+        saveAttempsData.attemps = attemps;
         saveAttempsData.time = System.DateTime.Now.ToString();
         var saveAttempsDataJson = JsonUtility.ToJson(saveAttempsData);
 
-        //tempList.Add(new savedAttemps { attemps = 3, time = System.DateTime.Now.ToString() }) ;
-        //tempList[tempList.Count - 1].attemps = 1;
-        //tempList[tempList.Count - 1].time = System.DateTime.Now.ToString();
-        //print(tempList[tempList.Count - 1].attemps);
-        //saveListData.list = tempList;
+        
         saveListData.list.Add(saveAttempsDataJson);
-        //saveListData.name = "jie guan";
-
-
-        //PlayerPrefs.SetString(saveDataKey , JsonUtility.ToJson(saveListData));
-        //
-
-        //Debug.Log(Application.persistentDataPath);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/AttempsData.json", JsonUtility.ToJson(saveListData));
+       
+        File.WriteAllText(Application.persistentDataPath + "/AttempsData.json", JsonUtility.ToJson(saveListData));
     }
 }

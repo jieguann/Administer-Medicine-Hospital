@@ -27,6 +27,8 @@ public class AttachedVial : MonoBehaviour
             {
                 print("Please find the right order");
                 GameManager.Instance.errorTips();
+                
+
             }
 
             else if (GameManager.Instance.orderFlag == 2)
