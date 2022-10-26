@@ -2700,6 +2700,9 @@ MonoBehaviour:
     type: 3}
   orderFlag: 0
   assembledPercentage: 0
+  leftHand: {fileID: 9014170785299599305}
+  resetButtonPrefeb: {fileID: 2555052014839123355, guid: ce151aa9802e34e47b2daea8222fddb7,
+    type: 3}
 --- !u!4 &2117349083
 Transform:
   m_ObjectHideFlags: 0
@@ -32193,7 +32196,7 @@ MonoBehaviour:
   m_Camera: {fileID: 9014170783767228334}
   m_OriginBaseGameObject: {fileID: 7696548424391997172}
   m_CameraFloorOffsetObject: {fileID: 9014170783820886923}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1.36144
 --- !u!1 &7875575660136033815
 GameObject:
