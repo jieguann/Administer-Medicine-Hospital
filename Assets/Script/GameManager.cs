@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
     public void OnComplete()
     {
         print("complete");
-        Instantiate(resetButtonPrefeb, leftHand);
+        Instantiate(resetButtonPrefeb, leftHand); 
     }
 
     public void OnSceneReload()
